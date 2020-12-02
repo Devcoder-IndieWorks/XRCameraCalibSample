@@ -1,0 +1,27 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.10",
+	"FriendlyName": "XR Camera Calibration",
+	"Description": "Vive Studios XR Camera Calibration Plugin",
+	"Category": "ViveStudios",
+	"CreateBy": "Vive-Studios",
+	"CreateByURL": "https://vivestudios.com",
+	"DocsURL": "",
+	"MarketplaceURL": "https://vivestudios.com",
+	"SupportURL": "https://vivestudios.com",
+	"EnabledByDefault": false,
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "XRCameraCalibration",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			"WhitelistPlatforms": [
+				"Win64"
+			]
+		}
+	]
+}
