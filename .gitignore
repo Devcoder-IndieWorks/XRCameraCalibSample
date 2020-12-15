@@ -87,6 +87,7 @@
 !*.version
 !.git*
 !.editorconfig
+!*.docx
 
 # Projects and makefiles
 !*.cmake
