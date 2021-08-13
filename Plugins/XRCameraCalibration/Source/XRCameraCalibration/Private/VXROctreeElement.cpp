@@ -48,7 +48,7 @@ void AVXROctreeElement::DrawDebug()
         auto location = GetActorLocation();
         auto extent = DrawExtent * 0.15f;
         DrawDebugBox( world, location, extent, DrawColor, false, AVXROctreeElement::DrawLifeTime + 0.1f, (uint8)'\000', 1.0f );
-        DrawDebugString( world, FVector::ZeroVector, GetName(), this, DrawColor, AVXROctreeElement::DrawLifeTime + 0.1f, true );
+        DrawDebugString( world, FVector::ZeroVector, GetName(), this, DrawColor, AVXROctreeElement::DrawLifeTime, true );
     }
 }
 

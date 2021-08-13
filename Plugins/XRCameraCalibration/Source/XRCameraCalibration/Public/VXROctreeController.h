@@ -26,7 +26,6 @@ public:
 protected:
     virtual void BeginPlay() override;
     virtual void EndPlay( EEndPlayReason::Type InEndPlayReason ) override;
-    virtual void Tick( float InDeltaSeconds ) override;
 
     bool InsertPositionInOctree( const FVector& InCameraPosition );
     bool InsertElementInOctree( const FVector& InCameraPosition, float InOffsetYaw, float InOffsetPitch );
@@ -64,9 +63,9 @@ public:
     FString ElementDataFilename;
 
 public:
-    UPROPERTY( Transient, BlueprintReadWrite )
+    UPROPERTY( Transient, BlueprintReadOnly )
     class AVXROctree* RootOctree;
-    UPROPERTY( Transient, BlueprintReadWrite )
+    UPROPERTY( Transient, BlueprintReadOnly )
     class AVXROctree* CurrentOctree;
 
 private:

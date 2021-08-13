@@ -1,6 +1,7 @@
 #include "VXROctreeController.h"
 #include "VXROctree.h"
 #include "VXROctreeElement.h"
+#include "VXRLog.h"
 #include "DrawDebugHelpers.h"
 
 AVXROctreeController::AVXROctreeController( const FObjectInitializer& ObjectInitializer )
@@ -20,19 +21,6 @@ void AVXROctreeController::BeginPlay()
     RootOctree = AVXROctree::SpawnRootOctree( GetWorld(), GetActorLocation(), Extent, ElementClass, 
         MaxElements, MaxDepth, DebugDrawLifeTime, NodeColor );
 
-    Super::BeginPlay();
-}
-
-void AVXROctreeController::EndPlay( EEndPlayReason::Type InEndPlayReason )
-{
-    if ( DebugDrawHandle.IsValid() )
-        GetWorldTimerManager().ClearTimer( DebugDrawHandle );
-
-    Super::EndPlay( InEndPlayReason );
-}
-
-void AVXROctreeController::Tick( float InDeltaSeconds )
-{
     if ( !DebugDrawHandle.IsValid() && RootOctree != nullptr ) {
         TWeakObjectPtr<AVXROctreeController> weakThis( this );
         GetWorldTimerManager().SetTimer( DebugDrawHandle, [weakThis]{
@@ -43,7 +31,15 @@ void AVXROctreeController::Tick( float InDeltaSeconds )
             }, DebugDrawLifeTime, true, 0.0f );
     }
 
-    Super::Tick( InDeltaSeconds );
+    Super::BeginPlay();
+}
+
+void AVXROctreeController::EndPlay( EEndPlayReason::Type InEndPlayReason )
+{
+    if ( DebugDrawHandle.IsValid() )
+        GetWorldTimerManager().ClearTimer( DebugDrawHandle );
+
+    Super::EndPlay( InEndPlayReason );
 }
 
 FRotator AVXROctreeController::GetCollectCameraRotationFromRootOctree( const FVector& InCameraPosition )
