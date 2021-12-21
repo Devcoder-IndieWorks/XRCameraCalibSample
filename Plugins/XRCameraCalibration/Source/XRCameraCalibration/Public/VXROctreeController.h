@@ -57,9 +57,9 @@ public:
     UPROPERTY( EditAnywhere, BlueprintReadWrite, Category="VXROctreeController|Properties" )
     float DebugDrawLifeTime;
 
-    UPROPERTY( EditDefaultsOnly, BlueprintReadWrite, Category="VXROctreeController|Properties", meta=(RelativePath) )
+    UPROPERTY( EditAnywhere, BlueprintReadWrite, Category="VXROctreeController|Properties", meta=(RelativePath) )
     FDirectoryPath ElementDataPath;
-    UPROPERTY( EditDefaultsOnly, BlueprintReadWrite, Category="VXROctreeController|Properties" )
+    UPROPERTY( EditAnywhere, BlueprintReadWrite, Category="VXROctreeController|Properties" )
     FString ElementDataFilename;
 
 public:
